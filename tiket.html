@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiket Pendaftaran - Chilya Lab</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style="background-color: #e2e8f0;">
+    <div class="container text-center print-container">
+        <div class="ticket-card" id="printArea">
+            <div class="ticket-header">
+                <img src="assets/logo_chilya.png" alt="Logo" onerror="this.src='https://via.placeholder.com/50?text=LAB'" class="ticket-logo">
+                <div>
+                    <h2>CHILYA CLINICAL LAB</h2>
+                    <p style="font-size: 0.8rem; color: #7f8c8d; font-style: italic;">"Pelayanan Laboratorium Cepat, Tepat, dan Terpercaya"</p>
+                </div>
+            </div>
+            <hr style="border: 1px dashed #ccc; margin: 15px 0;">
+            
+            <div style="display: flex; justify-content: space-around; text-align: center; margin: 15px 0;">
+                <div>
+                    <span style="font-size: 0.8rem; color: #7f8c8d;">No. Registrasi</span>
+                    <h3 id="t-noreg" style="color: #2c3e50;">-</h3>
+                </div>
+                <div>
+                    <span style="font-size: 0.8rem; color: #7f8c8d;">No. Antrian</span>
+                    <h2 id="t-antrian" style="color: #27ae60; font-size: 2rem; margin: 0;">-</h2>
+                </div>
+            </div>
+            <hr style="border: 1px dashed #ccc; margin: 15px 0;">
+
+            <table style="width: 100%; text-align: left; border-collapse: collapse; font-size: 0.95rem;">
+                <tr style="height: 35px;"><th>Nama Pasien</th><td id="t-nama">: -</td></tr>
+                <tr style="height: 35px;"><th>NIK</th><td id="t-nik">: -</td></tr>
+                <tr style="height: 35px;"><th>Nomor HP</th><td id="t-nohp">: -</td></tr>
+                <tr style="height: 35px;"><th>Jenis Layanan</th><td id="t-layanan">: -</td></tr>
+                <tr style="height: 35px; display: none;" id="t-row-dokter"><th>Dokter / Jadwal</th><td id="t-dokter">: -</td></tr>
+                <tr style="height: 35px; display: none;" id="t-row-periksa"><th>Pemeriksaan</th><td id="t-periksa">: -</td></tr>
+                <tr style="height: 35px;"><th>Tanggal Daftar</th><td id="t-tanggal">: -</td></tr>
+            </table>
+            
+            <div style="margin-top: 25px; text-align: center; font-size: 0.8rem; color: #95a5a6; border-top: 1px solid #eee; padding-top: 10px;">
+                <p>Silakan simpan tiket ini dan tunjukkan ke petugas pendaftaran.<br>Terima kasih.</p>
+            </div>
+        </div>
+
+        <div class="btn-group no-print" style="justify-content: center; margin-top: 20px;">
+            <button class="btn btn-next" onclick="window.print()"><i class="fas fa-file-pdf"></i> Simpan ke PDF / Cetak</button>
+            <button class="btn btn-batal" onclick="window.location.href='index.html'"><i class="fas fa-home"></i> Beranda</button>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script>window.onload = muatTiketPasien;</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Admin - Chilya Lab</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style="background-color: #cbd5e1; display: flex; justify-content: center; align-items: center; min-height: 100vh;">
+    <div class="card-pendaftaran" style="max-width: 400px; padding: 35px;">
+        <div style="text-align: center; margin-bottom: 25px;">
+            <img src="assets/logo_chilya.png" alt="Logo" onerror="this.src='https://via.placeholder.com/60?text=LAB'" style="height: 60px; margin-bottom: 10px;">
+            <h3 style="color: #2c3e50; margin: 0;">Admin Login Portal</h3>
+            <p style="color: #7f8c8d; font-size: 0.85rem; margin: 5px 0 0 0;">Chilya Clinical Lab</p>
+        </div>
+
+        <div id="errorBox" class="alert-danger" style="display: none; background: #fee2e2; color: #dc2626; padding: 10px; border-radius: 5px; margin-bottom: 15px; font-size: 0.85rem; text-align: center;">
+            <i class="fas fa-exclamation-circle"></i> Username atau Password salah
+        </div>
+
+        <form onsubmit="prosesLoginAdmin(event)">
+            <div class="form-group">
+                <label><i class="fas fa-user"></i> Username</label>
+                <input type="text" id="userInput" placeholder="Masukkan username admin" required>
+            </div>
+            <div class="form-group">
+                <label><i class="fas fa-key"></i> Password</label>
+                <input type="password" id="passInput" placeholder="Masukkan password admin" required>
+            </div>
+            <button type="submit" class="btn btn-next" style="width: 100%; margin-top: 10px;">Masuk Aplikasi <i class="fas fa-sign-in-alt"></i></button>
+        </form>
+        <div style="text-align: center; margin-top: 15px;">
+            <a href="index.html" style="text-decoration: none; color: #95a5a6; font-size: 0.85rem;"><i class="fas fa-arrow-left"></i> Kembali ke Beranda</a>
+        </div>
+    </div>
+    <script src="js/app.js"></script>
+</body>
+</html>

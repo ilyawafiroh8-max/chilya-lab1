@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendaftaran Pasien - Chilya Lab</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card-pendaftaran">
+            <div id="step1">
+                <h2 class="step-title">STEP 1 — Data Pasien</h2>
+                <div class="form-group">
+                    <label>Nama Lengkap *</label>
+                    <input type="text" id="nama" placeholder="Masukkan nama lengkap">
+                </div>
+                <div class="form-group">
+                    <label>NIK *</label>
+                    <input type="text" id="nik" placeholder="Masukkan 16 digit NIK">
+                </div>
+                <div class="form-group">
+                    <label>Jenis Kelamin</label>
+                    <select id="jk">
+                        <option value="Laki-laki">Laki-laki</option>
+                        <option value="Perempuan">Perempuan</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Alamat *</label>
+                    <textarea id="alamat" rows="3" placeholder="Masukkan alamat lengkap"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Nomor HP *</label>
+                    <input type="text" id="nohp" placeholder="Contoh: 08123456789">
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-batal" onclick="window.location.href='index.html'">Batal</button>
+                    <button class="btn btn-next" onclick="keStep2()">Next <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <div id="step2" style="display: none;">
+                <h2 class="step-title">STEP 2 — Pilih Layanan</h2>
+                <div class="form-group">
+                    <label>Jenis Layanan</label>
+                    <select id="jenisLayanan" onchange="pilihCabangLayanan()">
+                        <option value="Pemeriksaan Langsung">Pemeriksaan Langsung</option>
+                        <option value="Konsultasi Dokter">Konsultasi Dokter</option>
+                    </select>
+                </div>
+
+                <div id="areaPemeriksaan">
+                    <label style="font-weight: bold; display: block; margin-bottom: 10px;">Pilih Parameter Pemeriksaan:</label>
+                    <div class="accordion">
+                        <div class="acc-item">
+                            <div class="acc-header" onclick="toggleAcc(this)">🩸 Hematologi <i class="fas fa-chevron-down"></i></div>
+                            <div class="acc-body">
+                                <label><input type="checkbox" name="pemeriksaan" value="Hb"> Hb</label>
+                                <label><input type="checkbox" name="pemeriksaan" value="Leukosit"> Leukosit</label>
+                                <label><input type="checkbox" name="pemeriksaan" value="Eritrosit"> Eritrosit</label>
+                                <label><input type="checkbox" name="pemeriksaan" value="Hematokrit"> Hematokrit</label>
+                                <label><input type="checkbox" name="pemeriksaan" value="Trombosit"> Trombosit</label>
+                            </div>
+                        </div>
+                        <div class="acc-item">
+                            <div class="acc-header" onclick="toggleAcc(this)">🧫 Imunoserologi <i class="fas fa-chevron-down"></i></div>
+                            <div class="acc-body">
+                                <label><input type="checkbox" name="pemeriksaan" value="HIV"> HIV</label>
+                                <label><input type="checkbox" name="pemeriksaan" value="Sifilis"> Sifilis</label>
+                                <label><input type="checkbox" name="pemeriksaan" value="HBsAg"> HBsAg</label>
+                                <label><input type="checkbox" name="pemeriksaan" value="Anti-HAV"> Anti-HAV</label>
+                            </div>
+                        </div>
+                        <div class="acc-item">
+                            <div class="acc-header" onclick="toggleAcc(this)">🧪 Fungsi Ginjal <i class="fas fa-chevron-down"></i></div>
+                            <div class="acc-body">
+                                <label><input type="checkbox" name="pemeriksaan" value="Ureum"> Ureum</label>
+                                <label><input type="checkbox" name="pemeriksaan" value="Kreatinin"> Kreatinin</label>
+                                <label><input type="checkbox" name="pemeriksaan" value="Asam Urat"> Asam Urat</label>
+                            </div>
+                        </div>
+                        <div class="acc-item">
+                            <div class="acc-header" onclick="toggleAcc(this)">🧪 Fungsi Hati <i class="fas fa-chevron-down"></i></div>
+                            <div class="acc-body">
+                                <label><input type="checkbox" name="pemeriksaan" value="SGOT"> SGOT</label>
+                                <label><input type="checkbox" name="pemeriksaan" value="SGPT"> SGPT</label>
+                                <label><input type="checkbox" name="pemeriksaan" value="Bilirubin Total"> Bilirubin Total</label>
+                                <label><input type="checkbox" name="pemeriksaan" value="Bilirubin Direk"> Bilirubin Direk</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="areaKonsultasi" style="display: none;">
+                    <div class="form-group">
+                        <label>Pilih Dokter Spesialis</label>
+                        <select id="dokter">
+                            <option value="dr. Andini, Sp.PK">dr. Andini, Sp.PK</option>
+                            <option value="dr. Bunga, Sp.PK">dr. Bunga, Sp.PK</option>
+                            <option value="dr. Citra, Sp.PK">dr. Citra, Sp.PK</option>
+                            <option value="dr. Dimas, Sp.MK">dr. Dimas, Sp.MK</option>
+                            <option value="dr. Eka, Sp.MK">dr. Eka, Sp.MK</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Pilih Jadwal</label>
+                        <select id="jadwal">
+                            <option value="Senin 08.00">Senin 08.00</option>
+                            <option value="Senin 09.00">Senin 09.00</option>
+                            <option value="Senin 10.00">Senin 10.00</option>
+                            <option value="Selasa 08.00">Selasa 08.00</option>
+                            <option value="Selasa 09.00">Selasa 09.00</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="btn-group">
+                    <button class="btn btn-batal" onclick="keStep1()"><i class="fas fa-arrow-left"></i> Kembali</button>
+                    <button class="btn btn-next" onclick="simpanPendaftaran()">Konfirmasi & Cetak <i class="fas fa-check"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/app.js"></script>
+</body>
+</html>
